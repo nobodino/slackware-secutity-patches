@@ -1,0 +1,12 @@
+diff -aurN libimobiledevice-glue-20211125_3cb687b/src/utils.c libimobiledevice-glue-20211125_3cb687b-mod/src/utils.c
+--- libimobiledevice-glue-20211125_3cb687b/src/utils.c	2022-01-02 01:51:37.000000000 +0100
++++ libimobiledevice-glue-20211125_3cb687b-mod/src/utils.c	2022-05-27 16:14:55.486397250 +0200
+@@ -280,6 +280,8 @@
+ 	*buffer = (char*)malloc(sizeof(char)*(size+1));
+ 
+ 	if (*buffer == NULL) {
++		free(*buffer);
++		fclose(f);
+ 		return 0;
+ 	}
+ 
